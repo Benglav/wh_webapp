@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Product page{% endblock %}
+{% block content%}
+<h1>Product page!</h1>
+<h2>Add a product to the database.</h2>
+    <br />
+<form method="POST">
+    <div>
+         <label for="productInput">Add a product:</label>
+         <input type="text"
+              class="form-control"
+              id="productInput",
+              name="productInput",
+              placeholder="Product Name"
+         />
+        <label for="productPrice">Add a product Price:</label>
+         <input type="number"
+                step="0.01"
+              class="form-control"
+              id="productPrice",
+              name="productPrice",
+              placeholder="Price"
+         />
+    </div>
+    <br />
+    <div>
+        <button type="submit" class="btn btn-dark"> Add Product</button>
+    </div>
+</form>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+        <li class="list-group-item">{{ note.data }}</li>
+        <button type="button" class="close" onclick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    {% endfor %}
+</ul>
+
+{% endblock %}

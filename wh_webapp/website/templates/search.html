@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Search page{% endblock %}
+{% block content%}
+<h1>Search page!</h1>
+<h2>Search for a product</h2>
+<br />
+<form method="POST">
+    <div class="form-group">
+       <label for="productSearch">Product Name:</label>
+       <input type="text"
+              class="form-control"
+              id="productSearch",
+              name="productSearch",
+              placeholder="Product Name:"
+       />
+    </div>
+    <br />
+    <button type="submit" class="brn btn-dark">Search</button>
+</form>
+<br />
+<h3>search result:</h3>
+<h4>Product Name:</h4>
+    {{ product }}
+<br />
+<h4>Product price:</h4>
+    {{ price }}
+
+{% endblock %}
